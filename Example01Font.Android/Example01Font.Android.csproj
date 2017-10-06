@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{0892661e-ca93-4cfc-945e-a139860e9423}</ProjectGuid>
+    <ProjectTypeGuids>{EFBA0AD7-5A72-4C68-AF49-83D382785DCF};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <RootNamespace>Example01Font</RootNamespace>
+    <AssemblyName>Example01Font</AssemblyName>
+    <TargetFrameworkVersion>v6.0</TargetFrameworkVersion>
+    <AndroidApplication>True</AndroidApplication>
+    <AndroidManifest>Properties\AndroidManifest.xml</AndroidManifest>
+    <ReleaseVersion>0.9.0.0</ReleaseVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Android\Debug</OutputPath>
+    <DefineConstants>DEBUG;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AndroidLinkMode>None</AndroidLinkMode>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Android\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AndroidUseSharedRuntime>false</AndroidUseSharedRuntime>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Core" />
+    <Reference Include="Mono.Android" />
+    <Reference Include="Impression.Animations">
+      <HintPath>..\packages\Impression.Android.0.9.5\lib\MonoAndroid\Impression.Animations.dll</HintPath>
+    </Reference>
+    <Reference Include="Impression.Audio">
+      <HintPath>..\packages\Impression.Android.0.9.5\lib\MonoAndroid\Impression.Audio.dll</HintPath>
+    </Reference>
+    <Reference Include="Impression">
+      <HintPath>..\packages\Impression.Android.0.9.5\lib\MonoAndroid\Impression.dll</HintPath>
+    </Reference>
+    <Reference Include="Impression.Game">
+      <HintPath>..\packages\Impression.Android.0.9.5\lib\MonoAndroid\Impression.Game.dll</HintPath>
+    </Reference>
+    <Reference Include="Impression.Graphics">
+      <HintPath>..\packages\Impression.Android.0.9.5\lib\MonoAndroid\Impression.Graphics.dll</HintPath>
+    </Reference>
+    <Reference Include="Impression.Input">
+      <HintPath>..\packages\Impression.Android.0.9.5\lib\MonoAndroid\Impression.Input.dll</HintPath>
+    </Reference>
+    <Reference Include="Impression.Media">
+      <HintPath>..\packages\Impression.Android.0.9.5\lib\MonoAndroid\Impression.Media.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\Example01Font.Platform\Properties.AssemblyInfo.cs">
+      <Link>Properties.AssemblyInfo.cs</Link>
+    </Compile>
+    <Compile Include="..\Example01Font.Platform\Android\MainActivity.cs">
+      <Link>MainActivity.cs</Link>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\AndroidManifest.xml" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="..\Example01Font.Content\bin\Android\Release\Fonts\petangue-42.bin">
+      <Link>Assets\Content\Fonts\petangue-42.bin</Link>
+    </AndroidAsset>
+  </ItemGroup>
+  <Import Project="..\Example01Font.Shared\Example01Font.Shared.projitems" Label="Shared" Condition="Exists('..\Example01Font.Shared\Example01Font.Shared.projitems')" />
+  <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
+  <Import Project="..\packages\Impression.Android.0.9.5\build\Impression.Android.targets" Condition="Exists('..\packages\Impression.Android.0.9.5\build\Impression.Android.targets')" />
+</Project>
