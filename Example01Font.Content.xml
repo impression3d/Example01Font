@@ -9,5 +9,11 @@
   <References>
   </References>
   <Items>
+    <Item Include="\Fonts\petangue-42.fnt">
+      <Name>petangue-42</Name>
+      <BuildAction>Compile</BuildAction>
+      <Importer Name="BitmapFontImporter" />
+      <Processor Name="SpriteFontProcessor" />
+    </Item>
   </Items>
 </ContentProject>
